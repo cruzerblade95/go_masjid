@@ -30,6 +30,7 @@ class _WasiatPusakaBayarState extends State<WasiatPusakaBayar> {
   int? jumlahBayaran;
   final box = GetStorage();
   int? bulanan;
+  var billerCode;
 
   Future<void> _submit() async {
 
@@ -41,9 +42,38 @@ class _WasiatPusakaBayarState extends State<WasiatPusakaBayar> {
     // box.write('pusaka_tabung_amanah', _myPakejTabungAmanah);
 
 
+    double amounDalamSen =
+        double.parse(box.read('pusaka_jumlah_bayaran').toString()) * 100;
+    await _payment(
+      // state.listMasjidInfo[0].catApi,
+        "510xffj4",
+        // state.listMasjidInfo[0].namaMasjid,
+        "Rakyat Trustee Berhad",
+        "Bayaran AMANAH i-Pusaka",
+        // state.user.namaPenuh,
+        "${box.read('pusaka_nama')}",
+        // state.user.email,
+        "${box.read('pusaka_email')}",
+        // state.user.noHp,
+        "${box.read('pusaka_no_tel')}",
+        amounDalamSen,
+        // state.listMasjidInfo[0].toyyibKey,
+        "lkkd8asu-ogca-gzvt-bzds-xh5vwmlc2ia8",
+        // state.listCart[0].idOrder,
+        "1"
+    );
+
+    print("billerCode:");
+    var testing = jsonDecode(box.read('billerCode'));
+    var testing2 = jsonEncode(testing);
+    var testing3 = testing2.replaceAll('[', '');
+    var testing4 = testing3.replaceAll(']', '');
+    var finaltest = jsonDecode(testing4);
+    print(finaltest["BillCode"]);
+
     Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => WasiatWebview("https://infaqpay.my/plus/rakyattrustee-ipusaka")));
+        MaterialPageRoute(builder: (context) => WasiatWebview("https://toyyibpay.com/${finaltest["BillCode"]}")));
   }
 
   Future<void> _submit2() async {
@@ -57,30 +87,44 @@ class _WasiatPusakaBayarState extends State<WasiatPusakaBayar> {
     // box.write('pusaka_tabung_amanah', _myPakejTabungAmanah);
     box.write('pusaka_jumlah_bayaran', jumlahBayaran);
 
-    // double amounDalamSen =
-    //     double.parse(box.read('pusaka_jumlah_bayaran').toString()) * 100;
-    // await _payment(
-    //     // state.listMasjidInfo[0].catApi,
-    //   "510xffj4",
-    //     // state.listMasjidInfo[0].namaMasjid,
-    //   "Rakyat Trustee Berhad",
-    //     "Infaq kepada Masjid",
-    //     // state.user.namaPenuh,
-    //   "${box.read('pusaka_nama')}",
-    //     // state.user.email,
-    //   "${box.read('pusaka_email')}",
-    //     // state.user.noHp,
-    //   "${box.read('pusaka_no_tel')}",
-    //     amounDalamSen,
-    //     // state.listMasjidInfo[0].toyyibKey,
-    //   "lkkd8asu-ogca-gzvt-bzds-xh5vwmlc2ia8",
-    //     // state.listCart[0].idOrder,
-    //   "1"
-    // );
+    double amounDalamSen =
+        double.parse(box.read('pusaka_jumlah_bayaran').toString()) * 100;
+    await _payment(
+        // state.listMasjidInfo[0].catApi,
+      "510xffj4",
+        // state.listMasjidInfo[0].namaMasjid,
+      "Rakyat Trustee Berhad",
+        "Bayaran AMANAH i-Pusaka",
+        // state.user.namaPenuh,
+      "${box.read('pusaka_nama')}",
+        // state.user.email,
+      "${box.read('pusaka_email')}",
+        // state.user.noHp,
+      "${box.read('pusaka_no_tel')}",
+        amounDalamSen,
+        // state.listMasjidInfo[0].toyyibKey,
+      "lkkd8asu-ogca-gzvt-bzds-xh5vwmlc2ia8",
+        // state.listCart[0].idOrder,
+      "1"
+    );
+
+    print("billerCode:");
+    var testing = jsonDecode(box.read('billerCode'));
+    var testing2 = jsonEncode(testing);
+    var testing3 = testing2.replaceAll('[', '');
+    var testing4 = testing3.replaceAll(']', '');
+    var finaltest = jsonDecode(testing4);
+    print(finaltest["BillCode"]);
 
     Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => WasiatWebview("https://infaqpay.my/go/rakyattrustee")));
+        MaterialPageRoute(builder: (context) => WasiatWebview("https://toyyibpay.com/${finaltest["BillCode"]}")));
+    // Navigator.push(
+    //     context,
+    //     MaterialPageRoute(builder: (context) => WasiatPaymentGateway(
+    //       billerCode: '${finaltest["BillCode"]}',
+    //       idOrder: '1',
+    //     )));
   }
 
   @override
@@ -165,18 +209,18 @@ class _WasiatPusakaBayarState extends State<WasiatPusakaBayar> {
                       },
                       items: [
                         (_myPembayaran == 1)?
-                        DropdownMenuItem(
+                        const DropdownMenuItem(
                           value: 3,
                           child: Text("3 Bulan"),
-                        ) : DropdownMenuItem(
+                        ) : const DropdownMenuItem(
                           value: 1,
                           child: Text("1 Bulan"),
                         ),
-                        DropdownMenuItem(
+                        const DropdownMenuItem(
                           value: 6,
                           child: Text("6 Bulan"),
                         ),
-                        DropdownMenuItem(
+                        const DropdownMenuItem(
                           value: 12,
                           child: Text("12 Bulan"),
                         ),
@@ -245,7 +289,7 @@ class _WasiatPusakaBayarState extends State<WasiatPusakaBayar> {
 }
 
 
-Future<List> _payment(String catCode,
+Future<String> _payment(String catCode,
     String namaMasjid,
 String description,
     String namaPewakaf,
@@ -255,7 +299,9 @@ double amaounDalamSen,
     String toyyibKey,
 String idInfaq,) async {
 
-  List _billerCode = [];
+  final box = GetStorage();
+
+  String _billerCode;
 
   final response = await postToyyib(
   catCode,
@@ -269,8 +315,11 @@ String idInfaq,) async {
   idInfaq);
   if (response != null) {
   _billerCode = response;
+  print("_billerCode Sini");
+  print(_billerCode.replaceAll(' ', ''));
+  box.write('billerCode', _billerCode);
   }
-  return _billerCode;
+  return "";
 }
 
 postToyyib(String catCode, String namaMasjid, String description, String namaPewakaf, String email, String noPhone, double amaounDalamSen, String toyyibKey, String idInfaq) async {
@@ -303,9 +352,10 @@ postToyyib(String catCode, String namaMasjid, String description, String namaPew
   if (response.statusCode == 200) {
     final respStr = await http.Response.fromStream(response);
     // List list = respStr.body as List ;
+    print("Response Body:");
     print(respStr.body);
     // print(list);
-    return jsonDecode(respStr.body);
+    return respStr.body;
   }
 
 }
