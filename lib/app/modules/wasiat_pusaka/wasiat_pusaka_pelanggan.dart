@@ -160,6 +160,9 @@ class _WasiatPusakaPelangganState extends State<WasiatPusakaPelanggan> {
                     labelText: 'Nama Penuh',
                     // TODO: add errorHint
                     errorText: _errorTextNama,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                   onChanged: (text) => setState(() => _textNama),
                 ),
@@ -183,6 +186,9 @@ class _WasiatPusakaPelangganState extends State<WasiatPusakaPelanggan> {
                     labelText: 'No Kad Pengenalan',
                     // TODO: add errorHint
                     errorText: _errorTextNoIc,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                   onChanged: (text) => setState(() => _textNoIc),
                   keyboardType: TextInputType.number,
@@ -200,9 +206,12 @@ class _WasiatPusakaPelangganState extends State<WasiatPusakaPelanggan> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(30.0,0,30.0,8),
                 child: DropdownButtonHideUnderline(
+
                   child: ButtonTheme(
+
                     alignedDropdown: true,
                     child: DropdownButton<String>(
+
                       isExpanded: true,
                       value: _myJantina,
                       iconSize: 30,
@@ -210,6 +219,7 @@ class _WasiatPusakaPelangganState extends State<WasiatPusakaPelanggan> {
                       style: const TextStyle(
                         color: Colors.black54,
                         fontSize: 16,
+
                       ),
                       hint: const Text('Pilih Jantina'),
                       onChanged: (newValue) {
@@ -244,6 +254,9 @@ class _WasiatPusakaPelangganState extends State<WasiatPusakaPelanggan> {
                     labelText: 'No Telefon',
                     // TODO: add errorHint
                     errorText: _errorTextNoTel,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                   onChanged: (text) => setState(() => _textNoTel),
                   keyboardType: TextInputType.number,
@@ -260,6 +273,9 @@ class _WasiatPusakaPelangganState extends State<WasiatPusakaPelanggan> {
                     labelText: 'Email',
                     // TODO: add errorHint
                     errorText: _errorTextEmail,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                   onChanged: (text) => setState(() => _textEmail),
                 ),

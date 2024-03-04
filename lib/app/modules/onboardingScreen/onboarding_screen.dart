@@ -56,6 +56,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   image: DecorationImage(
                     image: AssetImage("assets/images/islamic_4.jpg"),
                     fit: BoxFit.cover,
+                    colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.7), BlendMode.dstATop),
                   ),
                 ),
                 child: Column(
@@ -63,20 +64,23 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   children: [
                     // Add other widgets here
                     SizedBox(height: 250),
-                    Text(
-                      "Explore The Mosque",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 42,
-                        fontWeight: FontWeight.bold,
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                      child: Text(
+                        "Explore The Mosque",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 42,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     SizedBox(height: 10),
                     Center(
                       child: Text(
                         "Lets Start Here!",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold),
                       ),
                     ),
                     SizedBox(height: 10),
@@ -97,6 +101,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   image: DecorationImage(
                     image: AssetImage("assets/images/islamic_2.jpg"),
                     fit: BoxFit.cover,
+                    colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.7), BlendMode.dstATop),
                   ),
                 ),
                 child: Column(
@@ -138,6 +143,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   image: DecorationImage(
                     image: AssetImage("assets/images/islamic_3.jpg"),
                     fit: BoxFit.cover,
+                    colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.7), BlendMode.dstATop),
                   ),
                 ),
                 child: Column(

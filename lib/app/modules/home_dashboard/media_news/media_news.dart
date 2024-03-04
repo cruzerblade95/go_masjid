@@ -26,8 +26,8 @@ class _MediaNewsState extends State<MediaNewsPage> {
   void initState() {
 
     _getMediaNewsList();
-    // print(box.read('user_kod_masjid'));
     super.initState();
+    // print(box.read('user_kod_masjid'));
   }
 
   Future<String?> _getMediaNewsList() async {
