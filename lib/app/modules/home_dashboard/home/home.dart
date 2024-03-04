@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_masjid/app/modules/daftar_kariah/daftar_kariah.dart';
 import 'package:go_masjid/app/modules/home_dashboard/notification/notification.dart';
 import 'package:go_masjid/app/modules/home_dashboard/profile/profile.dart';
+import 'package:go_masjid/app/modules/muslim_care/muslim_care_home.dart';
 import 'package:go_masjid/app/modules/share_app_widget/widget.dart';
 import 'package:go_masjid/app/utils/app_route.dart';
 import 'package:go_masjid/app/utils/styles/app_colors.dart';
@@ -50,7 +51,6 @@ class _Content extends StatelessWidget {
             const SizedBox(height: 10),
             SalamUser(box),
             WaktuSolat(),
-            const _muslimApps(),
             const _FastApps(),
             const InfoFeed(),
             MediaNews(),
@@ -248,125 +248,125 @@ class _WaktuSolatState extends State<WaktuSolat> {
   @override
     Widget build(BuildContext context) {
       return StreamBuilder(
-          stream: _getClockUpdate(),
-          builder: (context, snapshot) {
-            return Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
+        stream: _getClockUpdate(),
+        builder: (context, snapshot) {
+          return Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
               children: [
                 Container(
-                width: MediaQuery.of(context).size.width * 0.25,
-                height: 120.0,
-                decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(20),
-                bottomLeft: Radius.circular(20),
+                  width: MediaQuery.of(context).size.width * 0.25,
+                  height: 120.0,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      bottomLeft: Radius.circular(20),
+                    ),
+                  ),
+                  child: Image.asset(
+                    'assets/icons/sun.png',
+                  ),
                 ),
+                Container(
+                      width: MediaQuery.of(context).size.width * 0.68,
+                      height: 120.0,
+                      decoration: BoxDecoration(
+                        color: Colors.grey[300],
+                        borderRadius: const BorderRadius.only(
+                          topRight: Radius.circular(20),
+                          bottomRight: Radius.circular(20),
+                        ),
+                      ),
+                      child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(dateString ?? ""),
+                          ],
+                        ),
+                        Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Column(
+                            children: [
+                              const Text("WAKTU SOLAT",
+                                style: TextStyle(
+                                  fontFamily: 'Muli',
+                                  color: Colors.black,
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              Text("$waktuSolat",
+                                style: const TextStyle(
+                                  fontFamily: 'Muli',
+                                  color: Colors.black,
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            // margin: const EdgeInsets.all(.0),
+                            padding: const EdgeInsets.all(5.0),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black)
+                            ),
+                            child: Text(timeString,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                                fontFamily: 'Muli',
+                                color: Colors.black,
+                                fontSize: 25.0,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text("$_currentAddress"),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-                child: Image.asset(
-                'assets/icons/sun.png',
-                ),
-                ),
-              Container(
-              width: MediaQuery.of(context).size.width * 0.68,
-        height: 120.0,
-        decoration: BoxDecoration(
-        color: Colors.grey[300],
-        borderRadius: const BorderRadius.only(
-        topRight: Radius.circular(20),
-        bottomRight: Radius.circular(20),
-        ),
-        ),
-        child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-        Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-        Text(dateString ?? ""),
-        ],
-        ),
-        Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Column(
-        children: [
-        const Text("WAKTU SOLAT",
-        style: TextStyle(
-        fontFamily: 'Muli',
-        color: Colors.black,
-        fontSize: 14.0,
-        fontWeight: FontWeight.w700,
-        ),
-        ),
-        Text("$waktuSolat",
-        style: const TextStyle(
-        fontFamily: 'Muli',
-        color: Colors.black,
-        fontSize: 24.0,
-        fontWeight: FontWeight.w700,
-        ),
-        ),
-        ],
-        ),
-        Container(
-        // margin: const EdgeInsets.all(.0),
-        padding: const EdgeInsets.all(5.0),
-        decoration: BoxDecoration(
-        border: Border.all(color: Colors.black)
-        ),
-        child: Text(timeString,
-        textAlign: TextAlign.center,
-        style: const TextStyle(
-        fontFamily: 'Muli',
-        color: Colors.black,
-        fontSize: 25.0,
-        fontWeight: FontWeight.w700,
-        ),
-        ),
-        ),
-        ],
-        ),
-          Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-        Text("$_currentAddress"),
-        ],
-        ),
-        ],
-        ),
-        ),
-      ],
-      ),
+              ],
+            ),
+          );
+        }
       );
-      });
-
     }
   }
 
-class _muslimApps extends StatelessWidget {
-  const _muslimApps({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 400,
-      padding: const EdgeInsets.all(5),
-      child: Column(
-        children: [
-          ElevatedButton(
-            style: buttonMuslim,
-            onPressed: (){
-              AppRoute.push(context, const DaftarKariah());
-            },
-            child: const Text('PENDAFTARAN KARIAH',),
-          )
-        ],
-      ),
-    );
-  }
-}
+// class _muslimApps extends StatelessWidget {
+//   const _muslimApps({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       width: 400,
+//       padding: const EdgeInsets.all(5),
+//       child: Column(
+//         children: [
+//           ElevatedButton(
+//             style: buttonMuslim,
+//             onPressed: (){
+//               AppRoute.push(context, const DaftarKariah());
+//             },
+//             child: const Text('PENDAFTARAN KARIAH',),
+//           )
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class _FastApps extends StatelessWidget {
   const _FastApps({Key? key}) : super(key: key);
@@ -396,9 +396,13 @@ class _FastApps extends StatelessWidget {
                   },
                 ),
                 FastAppIcons(
-                  label: 'MuslimCare (Coming Soon)',
+                  label: 'MuslimCare',
                   image: 'assets/icons/IDaftarSolat.png',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const MuslimCareHome()));
+                  },
                 ),
                 FastAppIcons(
                   label: 'InfaqCare (Coming Soon)',
@@ -609,7 +613,7 @@ class _MediaNewsState extends State<MediaNews> {
                 onPressed: (){
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const GoFeed()));
+                      MaterialPageRoute(builder: (context) => const MediaNewsPage()));
                 },
                 child: const Text(
                   "See All",

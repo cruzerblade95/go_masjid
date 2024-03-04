@@ -1,61 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:go_masjid/app/modules/home_dashboard/profile/profile_menu_widget.dart';
-import 'package:go_masjid/app/modules/home_dashboard/profile/profile_update_screen.dart';
-import 'package:go_masjid/app/modules/masjid_care/semak_kariah_ketua.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-
 import '../../utils/styles/app_colors.dart';
 import '../../utils/styles/app_size.dart';
 import '../../utils/styles/app_textstyles.dart';
-import '../daftar_kariah/daftar_kariah.dart';
 
-
-class MasjidCareHome extends StatefulWidget {
-  const MasjidCareHome({super.key});
+class MuslimCareHome extends StatefulWidget {
+  const MuslimCareHome({super.key});
 
   @override
-  State<MasjidCareHome> createState() => _MasjidCareHomeState();
+  State<MuslimCareHome> createState() => _MuslimCareHomeState();
 }
 
-class _MasjidCareHomeState extends State<MasjidCareHome> {
+class _MuslimCareHomeState extends State<MuslimCareHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Masjid Care')),
+      appBar: AppBar(title: Text('Muslim Care')),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              // ProfileMenuWidget(
-              //     title: "Pendaftaran Kariah - Ketua Keluarga",
-              //     icon: LineAwesomeIcons.cog,
-              //     onPress: () {}),
-              // ProfileMenuWidget(
-              //     title: "Semak Pendaftaran Kariah",
-              //     icon: LineAwesomeIcons.cog,
-              //     onPress: () {
-              //       Navigator.push(
-              //           context,
-              //           MaterialPageRoute(builder: (context) => SemakKariahKetua()));
-              //     }),
               AppMenuCard(
-                title: 'Pendaftaran Kariah - Ketua Keluarga',
-                subtitle: 'Daftar sebagai ahli kariah di masjid anda sekarang',
-                iconImage: 'assets/icons/kariah_masjidpropenang.png',
-                backgroundColor: AppColors.primaryColor,
-                onTap: () => {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => DaftarKariah())
-                  )
-                },
-              ),
-              AppMenuCard(
-                title: 'Kematian',
-                subtitle: 'Daftar sebagai ahli kariah di masjid anda sekarang',
-                iconImage: 'assets/icons/lapor_kematian.png',
+                title: 'Masjid Terdekat',
+                subtitle: 'Anda boleh mengetahui lokasi masjid terdekat dan arah masjid yang dituju',
+                iconImage: 'assets/icons/masjid_terdekat.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
                   // Navigator.push(
@@ -65,9 +33,9 @@ class _MasjidCareHomeState extends State<MasjidCareHome> {
                 },
               ),
               AppMenuCard(
-                title: 'Aktiviti Masjid',
-                subtitle: 'Daftar sebagai ahli kariah di masjid anda sekarang',
-                iconImage: 'assets/icons/aktiviti_logo.png',
+                title: 'Waktu Solat',
+                subtitle: 'Anda boleh mengetahui waktu solat 5 waktu dan notifikasi masuk waktu solat',
+                iconImage: 'assets/icons/waktu_solat.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
                   // Navigator.push(
@@ -77,9 +45,9 @@ class _MasjidCareHomeState extends State<MasjidCareHome> {
                 },
               ),
               AppMenuCard(
-                title: 'Bantuan',
-                subtitle: 'Daftar sebagai ahli kariah di masjid anda sekarang',
-                iconImage: 'assets/icons/mohon_bantuan.png',
+                title: 'Qiblat',
+                subtitle: 'Menyemak kedudukan arah qiblat',
+                iconImage: 'assets/icons/AQiblat.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
                   // Navigator.push(
@@ -89,9 +57,9 @@ class _MasjidCareHomeState extends State<MasjidCareHome> {
                 },
               ),
               AppMenuCard(
-                title: 'Aduan & Cadangan',
-                subtitle: 'Daftar sebagai ahli kariah di masjid anda sekarang',
-                iconImage: 'assets/icons/Aduan_Cadangan.png',
+                title: 'Al-Quran',
+                subtitle: 'Anda boleh membaca Al-Quran secara menyeluruh',
+                iconImage: 'assets/icons/quran.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
                   // Navigator.push(
@@ -101,8 +69,20 @@ class _MasjidCareHomeState extends State<MasjidCareHome> {
                 },
               ),
               AppMenuCard(
-                title: 'Info Masjid',
-                subtitle: 'Daftar sebagai ahli kariah di masjid anda sekarang',
+                title: 'Tasbih',
+                subtitle: 'Anda boleh bertasbih dan mengetahui jumlah bacaan zikir',
+                iconImage: 'assets/icons/tasbih.png',
+                backgroundColor: AppColors.primaryColor,
+                onTap: () => {
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(builder: (context) => DaftarKariah())
+                  // )
+                },
+              ),
+              AppMenuCard(
+                title: 'Doa',
+                subtitle: 'Anda boleh melihat senarai doa-doa yang disediakan',
                 iconImage: 'assets/icons/kariah_masjidpropenang.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
@@ -112,17 +92,6 @@ class _MasjidCareHomeState extends State<MasjidCareHome> {
                   // )
                 },
               ),
-              // AppMenuCard(
-              //   title: 'Semak Pendaftaran Kariah',
-              //   subtitle: 'Semak Permohonan Anda',
-              //   iconImage: 'assets/icons/icon_status_permohonan.png',
-              //   // backgroundColor: AppColors.primaryColor,
-              //   onTap: () => {
-              //   Navigator.push(
-              //     context,
-              //     MaterialPageRoute(builder: (context) => SemakKariahKetua()))
-              //   },
-              // ),
             ],
           ),
         ),
@@ -198,52 +167,6 @@ class AppMenuCard extends StatelessWidget {
         ),
       ),
       // ),
-    );
-  }
-}
-
-class ProfileMenuWidget extends StatelessWidget {
-  const ProfileMenuWidget({
-    Key? key,
-    required this.title,
-    required this.icon,
-    required this.onPress,
-    this.endIcon = true,
-    this.textColor,
-  }) : super(key: key);
-
-  final String title;
-  final IconData icon;
-  final VoidCallback onPress;
-  final bool endIcon;
-  final Color? textColor;
-
-  @override
-  Widget build(BuildContext context) {
-
-    var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
-    var iconColor = isDark ? Colors.yellow : Colors.black;
-
-    return ListTile(
-      onTap: onPress,
-      leading: Container(
-        width: 40,
-        height: 40,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100),
-          color: iconColor.withOpacity(0.1),
-        ),
-        child: Icon(icon, color: iconColor),
-      ),
-      title: Text(title, style: Theme.of(context).textTheme.bodyLarge?.apply(color: textColor)),
-      trailing: endIcon? Container(
-          width: 30,
-          height: 30,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(100),
-            color: Colors.grey.withOpacity(0.1),
-          ),
-          child: const Icon(LineAwesomeIcons.angle_right, size: 18.0, color: Colors.grey)) : null,
     );
   }
 }
