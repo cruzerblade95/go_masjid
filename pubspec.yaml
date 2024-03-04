@@ -90,6 +90,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icons/
+    - assets/icons/go_masjid_new_icon/
     - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see

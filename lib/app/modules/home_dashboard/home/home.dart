@@ -387,7 +387,7 @@ class _FastApps extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 FastAppIcons(
-                  label: 'MasjidCare',
+                  label: 'MasjidCare  -',
                   image: 'assets/icons/go_masjid_new_icon/MASJIDCARE.png',
                   onPressed: () {
                     Navigator.push(
@@ -397,7 +397,7 @@ class _FastApps extends StatelessWidget {
                 ),
                 FastAppIcons(
                   label: 'MuslimCare (Coming Soon)',
-                  image: 'assets/icons/go_masjid_new_icon/MUSLIMCARE.png',
+                  image: 'assets/icons/go_masjid_new_icon/MUSLIM-CARE.png',
                   onPressed: () {
                     Navigator.push(
                         context,
