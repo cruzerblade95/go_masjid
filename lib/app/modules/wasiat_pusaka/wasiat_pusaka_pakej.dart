@@ -128,13 +128,19 @@ class _WasiatPusakaPakejState extends State<WasiatPusakaPakej> {
                   ),
                 ),
               ),
-              Align(alignment: Alignment.centerLeft,
+              (_myPenyakit == 1)?Align(alignment: Alignment.centerLeft,
+                child: Container(
+                  padding: const EdgeInsets.fromLTRB(30.0,0,30.0,8),
+                  child: const Text("*Pewasiat yang menghidap PENYAKIT SEDIA ADA dibenarkan untuk melanggan Pakej RM20,000 sehingga RM60,000 sahaja tanpa Pengisytiharan Kesihatan.", style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800), textAlign: TextAlign.left,),
+                ),
+              ):Container(),
+              (_myPenyakit != null)?Align(alignment: Alignment.centerLeft,
                 child: Container(
                   padding: const EdgeInsets.fromLTRB(30.0,8,30.0,0),
                   child: const Text("Sila pilih pakej anda", textAlign: TextAlign.left,),
                 ),
-              ),
-              Padding(
+              ):Container(),
+              (_myPenyakit != null)?Padding(
                 padding: const EdgeInsets.fromLTRB(30.0,0,30.0,8),
                 child: DropdownButtonHideUnderline(
                   child: ButtonTheme(
@@ -173,14 +179,14 @@ class _WasiatPusakaPakejState extends State<WasiatPusakaPakej> {
                     ),
                   ),
                 ),
-              ),
-              Align(alignment: Alignment.centerLeft,
+              ):Container(),
+              (_myPenyakit != null)?Align(alignment: Alignment.centerLeft,
                 child: Container(
                   padding: const EdgeInsets.fromLTRB(30.0,8,30.0,0),
                   child: const Text("Sila pilih pakej tabung amanah anda", textAlign: TextAlign.left,),
                 ),
-              ),
-              Padding(
+              ):Container(),
+              (_myPenyakit != null)?Padding(
                 padding: const EdgeInsets.fromLTRB(30.0,0,30.0,8),
                 child: DropdownButtonHideUnderline(
                   child: ButtonTheme(
@@ -253,7 +259,7 @@ class _WasiatPusakaPakejState extends State<WasiatPusakaPakej> {
                     ),
                   ),
                 ),
-              ),
+              ):Container(),
               (boxTrigger == 1)?
               Container(
                 margin: const EdgeInsets.all(15.0),
