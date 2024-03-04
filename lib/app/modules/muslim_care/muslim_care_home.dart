@@ -23,7 +23,7 @@ class _MuslimCareHomeState extends State<MuslimCareHome> {
               AppMenuCard(
                 title: 'Masjid Terdekat',
                 subtitle: 'Anda boleh mengetahui lokasi masjid terdekat dan arah masjid yang dituju',
-                iconImage: 'assets/icons/masjid_terdekat.png',
+                iconImage: 'assets/icons/go_masjid_new_icon/MASJID-TERDEKAT.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
                   // Navigator.push(
@@ -35,7 +35,7 @@ class _MuslimCareHomeState extends State<MuslimCareHome> {
               AppMenuCard(
                 title: 'Waktu Solat',
                 subtitle: 'Anda boleh mengetahui waktu solat 5 waktu dan notifikasi masuk waktu solat',
-                iconImage: 'assets/icons/waktu_solat.png',
+                iconImage: 'assets/icons/go_masjid_new_icon/WAKTU-SOLAT-&-AZAN.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
                   // Navigator.push(
@@ -47,7 +47,7 @@ class _MuslimCareHomeState extends State<MuslimCareHome> {
               AppMenuCard(
                 title: 'Qiblat',
                 subtitle: 'Menyemak kedudukan arah qiblat',
-                iconImage: 'assets/icons/AQiblat.png',
+                iconImage: 'assets/icons/go_masjid_new_icon/QIBLAT.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
                   // Navigator.push(
@@ -59,7 +59,7 @@ class _MuslimCareHomeState extends State<MuslimCareHome> {
               AppMenuCard(
                 title: 'Al-Quran',
                 subtitle: 'Anda boleh membaca Al-Quran secara menyeluruh',
-                iconImage: 'assets/icons/quran.png',
+                iconImage: 'assets/icons/go_masjid_new_icon/QURAN.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
                   // Navigator.push(
@@ -71,7 +71,7 @@ class _MuslimCareHomeState extends State<MuslimCareHome> {
               AppMenuCard(
                 title: 'Tasbih',
                 subtitle: 'Anda boleh bertasbih dan mengetahui jumlah bacaan zikir',
-                iconImage: 'assets/icons/tasbih.png',
+                iconImage: 'assets/icons/go_masjid_new_icon/TASBIH.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
                   // Navigator.push(
@@ -83,7 +83,7 @@ class _MuslimCareHomeState extends State<MuslimCareHome> {
               AppMenuCard(
                 title: 'Doa',
                 subtitle: 'Anda boleh melihat senarai doa-doa yang disediakan',
-                iconImage: 'assets/icons/kariah_masjidpropenang.png',
+                iconImage: 'assets/icons/go_masjid_new_icon/DOA.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
                   // Navigator.push(

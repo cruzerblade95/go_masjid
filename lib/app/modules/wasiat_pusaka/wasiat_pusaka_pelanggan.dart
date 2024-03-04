@@ -205,43 +205,47 @@ class _WasiatPusakaPelangganState extends State<WasiatPusakaPelanggan> {
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30.0,0,30.0,8),
-                child: DropdownButtonHideUnderline(
-
-                  child: ButtonTheme(
-
-                    alignedDropdown: true,
-                    child: DropdownButton<String>(
-
-                      isExpanded: true,
-                      value: _myJantina,
-                      iconSize: 30,
-                      icon: (null),
-                      style: const TextStyle(
-                        color: Colors.black54,
-                        fontSize: 16,
-
+                child: InputDecorator(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    ),
+                  ),
+                  child: DropdownButtonHideUnderline(
+                    child: ButtonTheme(
+                      alignedDropdown: true,
+                      child: DropdownButton<String>(
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        isExpanded: true,
+                        value: _myJantina,
+                        iconSize: 30,
+                        icon: (null),
+                        style: const TextStyle(
+                          color: Colors.black54,
+                          fontSize: 16,
+                        ),
+                        hint: const Text('Pilih Jantina'),
+                        onChanged: (newValue) {
+                          setState(() {
+                            _myJantina = newValue!;
+                            // _myDaerah = null;
+                            // _myZip = null;
+                            // _myMasjid = null;
+                            // _getDaerahList(_myNegeri);
+                            // print(_myNegeri);
+                          });
+                        },
+                        items: const [
+                              DropdownMenuItem(
+                                value: "lelaki",
+                                child: Text("Lelaki"),
+                              ),
+                              DropdownMenuItem(
+                                value: "perempuan",
+                                child: Text("Perempuan"),
+                              ),
+                            ],
                       ),
-                      hint: const Text('Pilih Jantina'),
-                      onChanged: (newValue) {
-                        setState(() {
-                          _myJantina = newValue!;
-                          // _myDaerah = null;
-                          // _myZip = null;
-                          // _myMasjid = null;
-                          // _getDaerahList(_myNegeri);
-                          // print(_myNegeri);
-                        });
-                      },
-                      items: const [
-                            DropdownMenuItem(
-                              value: "lelaki",
-                              child: Text("Lelaki"),
-                            ),
-                            DropdownMenuItem(
-                              value: "perempuan",
-                              child: Text("Perempuan"),
-                            ),
-                          ],
                     ),
                   ),
                 ),
