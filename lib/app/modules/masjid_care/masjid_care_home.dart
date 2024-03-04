@@ -43,7 +43,7 @@ class _MasjidCareHomeState extends State<MasjidCareHome> {
               AppMenuCard(
                 title: 'Pendaftaran Kariah - Ketua Keluarga',
                 subtitle: 'Daftar sebagai ahli kariah di masjid anda sekarang',
-                iconImage: 'assets/icons/kariah_masjidpropenang.png',
+                iconImage: 'assets/icons/go_masjid_new_icon/DAFTAR-KARIAH.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
                   Navigator.push(
@@ -55,7 +55,7 @@ class _MasjidCareHomeState extends State<MasjidCareHome> {
               AppMenuCard(
                 title: 'Kematian',
                 subtitle: 'Daftar sebagai ahli kariah di masjid anda sekarang',
-                iconImage: 'assets/icons/lapor_kematian.png',
+                iconImage: 'assets/icons/go_masjid_new_icon/LAPOR-KEMATIAN.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
                   // Navigator.push(
@@ -67,7 +67,7 @@ class _MasjidCareHomeState extends State<MasjidCareHome> {
               AppMenuCard(
                 title: 'Aktiviti Masjid',
                 subtitle: 'Daftar sebagai ahli kariah di masjid anda sekarang',
-                iconImage: 'assets/icons/aktiviti_logo.png',
+                iconImage: 'assets/icons/go_masjid_new_icon/AKTIVITI.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
                   // Navigator.push(
@@ -79,7 +79,7 @@ class _MasjidCareHomeState extends State<MasjidCareHome> {
               AppMenuCard(
                 title: 'Bantuan',
                 subtitle: 'Daftar sebagai ahli kariah di masjid anda sekarang',
-                iconImage: 'assets/icons/mohon_bantuan.png',
+                iconImage: 'assets/icons/go_masjid_new_icon/MOHON-BANTUAN.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
                   // Navigator.push(
@@ -91,7 +91,7 @@ class _MasjidCareHomeState extends State<MasjidCareHome> {
               AppMenuCard(
                 title: 'Aduan & Cadangan',
                 subtitle: 'Daftar sebagai ahli kariah di masjid anda sekarang',
-                iconImage: 'assets/icons/Aduan_Cadangan.png',
+                iconImage: 'assets/icons/go_masjid_new_icon/ADUAN-&-CADANGAN.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
                   // Navigator.push(
@@ -103,7 +103,7 @@ class _MasjidCareHomeState extends State<MasjidCareHome> {
               AppMenuCard(
                 title: 'Info Masjid',
                 subtitle: 'Daftar sebagai ahli kariah di masjid anda sekarang',
-                iconImage: 'assets/icons/kariah_masjidpropenang.png',
+                iconImage: 'assets/icons/go_masjid_new_icon/INFO-MASJID.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
                   // Navigator.push(
