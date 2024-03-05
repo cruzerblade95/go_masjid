@@ -285,11 +285,21 @@ class _WasiatPusakaBayarState extends State<WasiatPusakaBayar> {
                 margin: const EdgeInsets.all(15.0),
                 padding: const EdgeInsets.all(3.0),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blueAccent)
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                    color: Colors.cyan,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Colors.grey)
                 ),
                 child: Column(
                   children: [
-                    Text("Jumlah yang perlu dibayar: RM ${jumlahBayaran}", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                    Text("Jumlah yang perlu dibayar: \n RM ${jumlahBayaran}", textAlign: TextAlign.center, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                     const Divider(),
                     Container(
                       padding: const EdgeInsets.fromLTRB(35.0,10,30.0,10),
