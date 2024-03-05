@@ -158,6 +158,9 @@ class _WasiatPusakaPelangganState extends State<WasiatPusakaPelanggan> {
                   controller: namaPenuhController,
                   decoration: InputDecoration(
                     labelText: 'Nama Penuh',
+                    labelStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                    ),
                     // TODO: add errorHint
                     errorText: _errorTextNama,
                     border: OutlineInputBorder(
@@ -184,6 +187,9 @@ class _WasiatPusakaPelangganState extends State<WasiatPusakaPelanggan> {
                   controller: noIcController,
                   decoration: InputDecoration(
                     labelText: 'No Kad Pengenalan',
+                    labelStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
                     // TODO: add errorHint
                     errorText: _errorTextNoIc,
                     border: OutlineInputBorder(
@@ -200,7 +206,7 @@ class _WasiatPusakaPelangganState extends State<WasiatPusakaPelanggan> {
               Align(alignment: Alignment.centerLeft,
                 child: Container(
                   padding: const EdgeInsets.fromLTRB(30.0,8,30.0,0),
-                  child: const Text("Jantina", textAlign: TextAlign.left,),
+                  child: const Text("Jantina", textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.bold),),
                 ),
               ),
               Padding(
@@ -256,6 +262,9 @@ class _WasiatPusakaPelangganState extends State<WasiatPusakaPelanggan> {
                   controller: noPhoneController,
                   decoration: InputDecoration(
                     labelText: 'No Telefon',
+                    labelStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
                     // TODO: add errorHint
                     errorText: _errorTextNoTel,
                     border: OutlineInputBorder(
@@ -275,6 +284,9 @@ class _WasiatPusakaPelangganState extends State<WasiatPusakaPelanggan> {
                   controller: emailController,
                   decoration: InputDecoration(
                     labelText: 'Email',
+                    labelStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
                     // TODO: add errorHint
                     errorText: _errorTextEmail,
                     border: OutlineInputBorder(
@@ -294,7 +306,7 @@ class _WasiatPusakaPelangganState extends State<WasiatPusakaPelanggan> {
                       : null,
                   child: Text(
                     'Seterusnya',
-                    style: Theme.of(context).textTheme.titleLarge,
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
                   ),
                 ),
               )
