@@ -13,13 +13,49 @@ import '../daftar_kariah/daftar_kariah.dart';
 
 
 class WasiatPusakaHome extends StatefulWidget {
-  const WasiatPusakaHome({super.key});
+  WasiatPusakaHome(this.i, {super.key});
+
+  int i;
 
   @override
   State<WasiatPusakaHome> createState() => _WasiatPusakaHomeState();
 }
 
 class _WasiatPusakaHomeState extends State<WasiatPusakaHome> {
+
+  @override
+  void initState(){
+    super.initState();
+
+    if(widget.i == 1){
+      const AlertDialog(
+          title: Text('Status Pembayaran'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('Pembayaran Berjaya.'),
+                Text('Resit telah dihantar ke email anda'),
+              ],
+            ),
+          )
+      );
+    }else if(widget.i == 2){
+      const AlertDialog(
+          title: Text('Status Pembayaran'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('Pembayaran Tidak Berjaya.'),
+                Text('Sila cuba lagi'),
+              ],
+            ),
+          )
+      );
+    }else if(widget.i == 0){
+
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

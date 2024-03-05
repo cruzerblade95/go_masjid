@@ -415,7 +415,7 @@ class _FastApps extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const WasiatPusakaHome()));
+                        MaterialPageRoute(builder: (context) => WasiatPusakaHome(0)));
                   },
                 ),
               ],

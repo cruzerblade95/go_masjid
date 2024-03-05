@@ -90,7 +90,7 @@ class _WebViewState extends State<WebView> {
                 _sendSMS();
                 Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => WasiatPusakaHome()));
+                    MaterialPageRoute(builder: (context) => WasiatPusakaHome(1)));
               }else if (request.url.contains("status_id=3")) {
                 // await AppRoute.pushReplacement(context, MartsjidCartPage());
                 const AlertDialog(
@@ -110,7 +110,7 @@ class _WebViewState extends State<WebView> {
                 // flutterWebviewPlugin.hide();
                 Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => WasiatPusakaHome()));
+                    MaterialPageRoute(builder: (context) => WasiatPusakaHome(2)));
               }
               return NavigationDecision.navigate;
             }
