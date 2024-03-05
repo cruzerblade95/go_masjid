@@ -43,7 +43,7 @@ class _WasiatPusakaBayarState extends State<WasiatPusakaBayar> {
 
 
     double amounDalamSen =
-        double.parse(box.read('pusaka_jumlah_bayaran').toString()) * 100;
+        double.parse(box.read('pusaka_jumlah_bayaran').toString()) * 100 + 100;
     await _payment(
       // state.listMasjidInfo[0].catApi,
         "510xffj4",
@@ -88,10 +88,11 @@ class _WasiatPusakaBayarState extends State<WasiatPusakaBayar> {
     box.write('pusaka_jumlah_bayaran', jumlahBayaran);
 
     double amounDalamSen =
-        double.parse(box.read('pusaka_jumlah_bayaran').toString()) * 100;
+        double.parse(box.read('pusaka_jumlah_bayaran').toString()) * 100 + 100;
     await _payment(
         // state.listMasjidInfo[0].catApi,
-      "510xffj4",
+      "510xffj4", //myrich cat key
+      // "jk1gal3v", // nabil cat key
         // state.listMasjidInfo[0].namaMasjid,
       "Rakyat Trustee Berhad",
         "Bayaran AMANAH i-Pusaka",
@@ -103,7 +104,8 @@ class _WasiatPusakaBayarState extends State<WasiatPusakaBayar> {
       "${box.read('pusaka_no_tel')}",
         amounDalamSen,
         // state.listMasjidInfo[0].toyyibKey,
-      "lkkd8asu-ogca-gzvt-bzds-xh5vwmlc2ia8",
+      "lkkd8asu-ogca-gzvt-bzds-xh5vwmlc2ia8", // myrich toyyibkey
+      //   "uylxjlqj-inob-54np-x5g1-ccs12aj2lsqj", // nabil testing
         // state.listCart[0].idOrder,
       "1"
     );
@@ -345,7 +347,7 @@ postToyyib(String catCode, String namaMasjid, String description, String namaPew
     ..fields["billSplitPayment"] = "0"
     ..fields["billSplitPaymentArgs"] = ""
     ..fields["billPaymentChannel"] = "0"
-    ..fields["billContentEmail"] = "Terima kasih atas bayaran anda!"
+    ..fields["billContentEmail"] = "Pelanggan yang dihormati,<br/><br/>Terima Kasih Kerana bersama rakyat trustee berhad.<br/><br/>Kami telah menerima pembayaran anda .Sila klik link pautan dibawah untuk mengisi butiran penting bagi membolehkan kami memproses maklumat anda secepat mungkin<br/><br/><a href='https://bit.ly/PendaftaraniPusaka'>https://bit.ly/PendaftaraniPusaka</a><br/><br/>Sekiranya anda memerlukan bantuan, sila hubungi Pusat panggilan kami di talian 0194761669"
     ..fields["billChargeToCustomer"] = "1";
   var response = await request.send();
 
