@@ -73,6 +73,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           color: Colors.black,
                           fontSize: 42,
                           fontWeight: FontWeight.bold,
+                          shadows: [
+                            Shadow(
+                              color: Colors.white,      // Choose the color of the shadow
+                              blurRadius: 2.0,          // Adjust the blur radius for the shadow effect
+                              offset: Offset(2.0, 2.0), // Set the horizontal and vertical offset for the shadow
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -80,7 +87,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     Center(
                       child: Text(
                         "Lets Start Here!",
-                        style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     SizedBox(height: 10),
@@ -113,18 +124,29 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       "Mosque \n And Muslim Application",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 42,
                         fontWeight: FontWeight.bold,
+                        shadows: [
+                          Shadow(
+                            color: Colors.white,      // Choose the color of the shadow
+                            blurRadius: 2.0,          // Adjust the blur radius for the shadow effect
+                            offset: Offset(2.0, 2.0), // Set the horizontal and vertical offset for the shadow
+                          ),
+                        ],
                       ),
                     ),
                     SizedBox(height: 10),
-                    Center(
-                      child: Text(
-                        "Lets Start Here!",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
+                    // Center(
+                    //   child: Text(
+                    //     "Lets Start Here!",
+                    //     style: TextStyle(
+                    //       color: Colors.white,
+                    //       fontSize: 16,
+                    //       fontWeight: FontWeight.bold,
+                    //     ),
+                    //   ),
+                    // ),
                     SizedBox(height: 10),
                     ElevatedButton(
                         onPressed: () {
@@ -155,9 +177,16 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       "Welcome To",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 42,
                         fontWeight: FontWeight.bold,
+                        shadows: [
+                          Shadow(
+                            color: Colors.white,      // Choose the color of the shadow
+                            blurRadius: 2.0,          // Adjust the blur radius for the shadow effect
+                            offset: Offset(2.0, 2.0), // Set the horizontal and vertical offset for the shadow
+                          ),
+                        ],
                       ),
                     ),
                     Image(
@@ -168,7 +197,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     Center(
                       child: Text(
                         "Bismillah",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     SizedBox(height: 10),

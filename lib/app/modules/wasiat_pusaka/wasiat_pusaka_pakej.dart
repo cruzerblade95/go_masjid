@@ -82,48 +82,55 @@ class _WasiatPusakaPakejState extends State<WasiatPusakaPakej> {
               const Divider(),
               Align(alignment: Alignment.centerLeft,
                 child: Container(
-                  padding: const EdgeInsets.fromLTRB(30.0,8,30.0,0),
-                  child: const Text("Adakah anda mempunyai penyakit yang sedia ada?", textAlign: TextAlign.left,),
+                  padding: const EdgeInsets.fromLTRB(30.0,8,30.0,8),
+                  child: const Text("Adakah anda mempunyai penyakit yang sedia ada?", textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.bold),),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30.0,0,30.0,8),
-                child: DropdownButtonHideUnderline(
-                  child: ButtonTheme(
-                    alignedDropdown: true,
-                    child: DropdownButton<int>(
-                      isExpanded: true,
-                      value: _myPenyakit,
-                      iconSize: 30,
-                      icon: (null),
-                      style: const TextStyle(
-                        color: Colors.black54,
-                        fontSize: 16,
+                child: InputDecorator(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    ),
+                  ),
+                  child: DropdownButtonHideUnderline(
+                    child: ButtonTheme(
+                      alignedDropdown: true,
+                      child: DropdownButton<int>(
+                        isExpanded: true,
+                        value: _myPenyakit,
+                        iconSize: 30,
+                        icon: (null),
+                        style: const TextStyle(
+                          color: Colors.black54,
+                          fontSize: 16,
+                        ),
+                        hint: const Text('Sila buat pilihan anda'),
+                        onChanged: (newValue) {
+                          setState(() {
+                            _myPenyakit = newValue!;
+                            _myPakejAmanah = null;
+                            _myPakejTabungAmanah = null;
+                            boxTrigger = 0;
+                            if(_myPenyakit == 1){
+                              pakejs = pakej;
+                            }else if(_myPenyakit == 2){
+                              pakejs = pakej1;
+                            }
+                          });
+                        },
+                        items: const [
+                          DropdownMenuItem(
+                            value: 1,
+                            child: Text("Ya"),
+                          ),
+                          DropdownMenuItem(
+                            value: 2,
+                            child: Text("Tidak"),
+                          ),
+                        ],
                       ),
-                      hint: const Text('Sila buat pilihan anda'),
-                      onChanged: (newValue) {
-                        setState(() {
-                          _myPenyakit = newValue!;
-                          _myPakejAmanah = null;
-                          _myPakejTabungAmanah = null;
-                          boxTrigger = 0;
-                          if(_myPenyakit == 1){
-                            pakejs = pakej;
-                          }else if(_myPenyakit == 2){
-                            pakejs = pakej1;
-                          }
-                        });
-                      },
-                      items: const [
-                        DropdownMenuItem(
-                          value: 1,
-                          child: Text("Ya"),
-                        ),
-                        DropdownMenuItem(
-                          value: 2,
-                          child: Text("Tidak"),
-                        ),
-                      ],
                     ),
                   ),
                 ),
@@ -131,131 +138,145 @@ class _WasiatPusakaPakejState extends State<WasiatPusakaPakej> {
               (_myPenyakit == 1)?Align(alignment: Alignment.centerLeft,
                 child: Container(
                   padding: const EdgeInsets.fromLTRB(30.0,0,30.0,8),
-                  child: const Text("*Pewasiat yang menghidap PENYAKIT SEDIA ADA dibenarkan untuk melanggan Pakej RM20,000 sehingga RM60,000 sahaja tanpa Pengisytiharan Kesihatan.", style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800), textAlign: TextAlign.left,),
+                  child: const Text("*Pewasiat yang menghidap PENYAKIT SEDIA ADA dibenarkan untuk melanggan Pakej RM20,000 sehingga RM60,000 sahaja tanpa Pengisytiharan Kesihatan.", style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.grey), textAlign: TextAlign.left,),
                 ),
               ):Container(),
               (_myPenyakit != null)?Align(alignment: Alignment.centerLeft,
                 child: Container(
-                  padding: const EdgeInsets.fromLTRB(30.0,8,30.0,0),
-                  child: const Text("Sila pilih pakej anda", textAlign: TextAlign.left,),
+                  padding: const EdgeInsets.fromLTRB(30.0,8,30.0,8),
+                  child: const Text("Sila pilih pakej anda", textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.bold),),
                 ),
               ):Container(),
               (_myPenyakit != null)?Padding(
                 padding: const EdgeInsets.fromLTRB(30.0,0,30.0,8),
-                child: DropdownButtonHideUnderline(
-                  child: ButtonTheme(
-                    alignedDropdown: true,
-                    child: DropdownButton<int>(
-                      isExpanded: true,
-                      value: _myPakejAmanah,
-                      iconSize: 30,
-                      icon: (null),
-                      style: const TextStyle(
-                        color: Colors.black54,
-                        fontSize: 16,
+                child: InputDecorator(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    ),
+                  ),
+                  child: DropdownButtonHideUnderline(
+                    child: ButtonTheme(
+                      alignedDropdown: true,
+                      child: DropdownButton<int>(
+                        isExpanded: true,
+                        value: _myPakejAmanah,
+                        iconSize: 30,
+                        icon: (null),
+                        style: const TextStyle(
+                          color: Colors.black54,
+                          fontSize: 16,
+                        ),
+                        hint: const Text('Sila buat pilihan pakej anda'),
+                        onChanged: (newValue) {
+                          setState(() {
+                            _myPakejAmanah = newValue!;
+                            _myPakejTabungAmanah = null;
+                            if(_myPenyakit == 1 && _myPakejAmanah == 1){
+                              tabungamanah = tabungamanah1;
+                            }else if(_myPenyakit == 2 && _myPakejAmanah == 1){
+                              tabungamanah = tabungamanah2;
+                            }else if(_myPenyakit == 2 && _myPakejAmanah == 2){
+                              tabungamanah = tabungamanahpremium;
+                            }
+                            boxTrigger = 0;
+                          });
+                        },
+                        items: pakejs?.map((item) {
+                          return DropdownMenuItem<int>(
+                            value: item['value'],
+                            child: Text(item['name']),
+                          );
+                        }).toList() ??
+                            [],
                       ),
-                      hint: const Text('Sila buat pilihan pakej anda'),
-                      onChanged: (newValue) {
-                        setState(() {
-                          _myPakejAmanah = newValue!;
-                          _myPakejTabungAmanah = null;
-                          if(_myPenyakit == 1 && _myPakejAmanah == 1){
-                            tabungamanah = tabungamanah1;
-                          }else if(_myPenyakit == 2 && _myPakejAmanah == 1){
-                            tabungamanah = tabungamanah2;
-                          }else if(_myPenyakit == 2 && _myPakejAmanah == 2){
-                            tabungamanah = tabungamanahpremium;
-                          }
-                          boxTrigger = 0;
-                        });
-                      },
-                      items: pakejs?.map((item) {
-                        return DropdownMenuItem<int>(
-                          value: item['value'],
-                          child: Text(item['name']),
-                        );
-                      }).toList() ??
-                          [],
                     ),
                   ),
                 ),
               ):Container(),
               (_myPenyakit != null)?Align(alignment: Alignment.centerLeft,
                 child: Container(
-                  padding: const EdgeInsets.fromLTRB(30.0,8,30.0,0),
-                  child: const Text("Sila pilih pakej tabung amanah anda", textAlign: TextAlign.left,),
+                  padding: const EdgeInsets.fromLTRB(30.0,8,30.0,8),
+                  child: const Text("Sila pilih pakej tabung amanah anda", textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.bold),),
                 ),
               ):Container(),
               (_myPenyakit != null)?Padding(
                 padding: const EdgeInsets.fromLTRB(30.0,0,30.0,8),
-                child: DropdownButtonHideUnderline(
-                  child: ButtonTheme(
-                    alignedDropdown: true,
-                    child: DropdownButton<int>(
-                      isExpanded: true,
-                      value: _myPakejTabungAmanah,
-                      iconSize: 30,
-                      icon: (null),
-                      style: const TextStyle(
-                        color: Colors.black54,
-                        fontSize: 16,
-                      ),
-                      hint: const Text('Sila buat pilihan pakej tabung amanah anda'),
-                      onChanged: (newValue) {
-                        setState(() {
-                          _myPakejTabungAmanah = newValue!;
-                          if(_myPakejTabungAmanah == 1){
-                            stringNilaiTabung = "RM 20,000";
-                            bulanan = 30;
-                            tahunan = 360;
-                          }else if(_myPakejTabungAmanah == 2){
-                            stringNilaiTabung = "RM 40,000";
-                            bulanan = 40;
-                            tahunan = 480;
-                          }else if(_myPakejTabungAmanah == 3){
-                            stringNilaiTabung = "RM 60,000";
-                            bulanan = 50;
-                            tahunan = 600;
-                          }else if(_myPakejTabungAmanah == 4){
-                            stringNilaiTabung = "RM 80,000";
-                            bulanan = 60;
-                            tahunan = 720;
-                          }else if(_myPakejTabungAmanah == 5){
-                            stringNilaiTabung = "RM 100,000";
-                            bulanan = 70;
-                            tahunan = 840;
-                          }else if(_myPakejTabungAmanah == 6){
-                            stringNilaiTabung = "RM 120,000";
-                            bulanan = 100;
-                            tahunan = 1200;
-                          }else if(_myPakejTabungAmanah == 7){
-                            stringNilaiTabung = "RM 140,000";
-                            bulanan = 120;
-                            tahunan = 1440;
-                          }else if(_myPakejTabungAmanah == 8){
-                            stringNilaiTabung = "RM 160,000";
-                            bulanan = 140;
-                            tahunan = 1680;
-                          }else if(_myPakejTabungAmanah == 9){
-                            stringNilaiTabung = "RM 180,000";
-                            bulanan = 160;
-                            tahunan = 1920;
-                          }else if(_myPakejTabungAmanah == 10){
-                            stringNilaiTabung = "RM 200,000";
-                            bulanan = 180;
-                            tahunan = 2160;
-                          }
-                          boxTrigger = 1;
+                child: InputDecorator(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    ),
+                  ),
+                  child: DropdownButtonHideUnderline(
+                    child: ButtonTheme(
+                      alignedDropdown: true,
+                      child: DropdownButton<int>(
+                        isExpanded: true,
+                        value: _myPakejTabungAmanah,
+                        iconSize: 30,
+                        icon: (null),
+                        style: const TextStyle(
+                          color: Colors.black54,
+                          fontSize: 16,
+                        ),
+                        hint: const Text('Sila buat pilihan pakej tabung amanah anda'),
+                        onChanged: (newValue) {
+                          setState(() {
+                            _myPakejTabungAmanah = newValue!;
+                            if(_myPakejTabungAmanah == 1){
+                              stringNilaiTabung = "RM 20,000";
+                              bulanan = 30;
+                              tahunan = 360;
+                            }else if(_myPakejTabungAmanah == 2){
+                              stringNilaiTabung = "RM 40,000";
+                              bulanan = 40;
+                              tahunan = 480;
+                            }else if(_myPakejTabungAmanah == 3){
+                              stringNilaiTabung = "RM 60,000";
+                              bulanan = 50;
+                              tahunan = 600;
+                            }else if(_myPakejTabungAmanah == 4){
+                              stringNilaiTabung = "RM 80,000";
+                              bulanan = 60;
+                              tahunan = 720;
+                            }else if(_myPakejTabungAmanah == 5){
+                              stringNilaiTabung = "RM 100,000";
+                              bulanan = 70;
+                              tahunan = 840;
+                            }else if(_myPakejTabungAmanah == 6){
+                              stringNilaiTabung = "RM 120,000";
+                              bulanan = 100;
+                              tahunan = 1200;
+                            }else if(_myPakejTabungAmanah == 7){
+                              stringNilaiTabung = "RM 140,000";
+                              bulanan = 120;
+                              tahunan = 1440;
+                            }else if(_myPakejTabungAmanah == 8){
+                              stringNilaiTabung = "RM 160,000";
+                              bulanan = 140;
+                              tahunan = 1680;
+                            }else if(_myPakejTabungAmanah == 9){
+                              stringNilaiTabung = "RM 180,000";
+                              bulanan = 160;
+                              tahunan = 1920;
+                            }else if(_myPakejTabungAmanah == 10){
+                              stringNilaiTabung = "RM 200,000";
+                              bulanan = 180;
+                              tahunan = 2160;
+                            }
+                            boxTrigger = 1;
 
-                        });
-                      },
-                      items: tabungamanah?.map((item) {
-                        return DropdownMenuItem<int>(
-                          value: item['value'],
-                          child: Text(item['name']),
-                        );
-                      }).toList() ??
-                          [],
+                          });
+                        },
+                        items: tabungamanah?.map((item) {
+                          return DropdownMenuItem<int>(
+                            value: item['value'],
+                            child: Text(item['name']),
+                          );
+                        }).toList() ??
+                            [],
+                      ),
                     ),
                   ),
                 ),
@@ -265,15 +286,25 @@ class _WasiatPusakaPakejState extends State<WasiatPusakaPakej> {
                 margin: const EdgeInsets.all(15.0),
                 padding: const EdgeInsets.all(3.0),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blueAccent)
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                    color: Colors.cyan,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Colors.grey)
                 ),
                 child: Column(
                   children: [
-                    Text("RM ${bulanan}/Bulan @ RM ${tahunan}/Tahun", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                    Text("RM ${bulanan}/Bulan @ RM ${tahunan}/Tahun", textAlign: TextAlign.center, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                     const Divider(),
                     Align(alignment: Alignment.centerLeft,
                       child: Container(
-                        padding: const EdgeInsets.fromLTRB(30.0,8,30.0,0),
+                        padding: const EdgeInsets.fromLTRB(30.0,8,30.0,8),
                         child: Text("- ${stringNilaiTabung} akan dibayar sekiranya orang diwasiatkan meninggal dunia (Sehingga Maksima 80 Tahun).", textAlign: TextAlign.left,),
                       ),
                     ),
@@ -285,13 +316,13 @@ class _WasiatPusakaPakejState extends State<WasiatPusakaPakej> {
                     ),
                     Align(alignment: Alignment.centerLeft,
                       child: Container(
-                        padding: const EdgeInsets.fromLTRB(30.0,8,30.0,0),
+                        padding: const EdgeInsets.fromLTRB(30.0,8,30.0,8),
                         child: Text("- ${stringNilaiTabung} akan dibayar sekiranya orang diwasiatkan hilang upaya kekal & menyeluruh (Sehingga 70 Tahun).", textAlign: TextAlign.left,),
                       ),
                     ),
                     Align(alignment: Alignment.centerLeft,
                       child: Container(
-                        padding: const EdgeInsets.fromLTRB(35.0,0,30.0,0),
+                        padding: const EdgeInsets.fromLTRB(35.0,0,30.0,10),
                         child: Text("*Tiada manfaat jika hilang upaya kekal disebabkan penyakit berlaku dalam masa KURANG 6 BULAN", textAlign: TextAlign.left,style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold)),
                       ),
                     ),
@@ -304,7 +335,9 @@ class _WasiatPusakaPakejState extends State<WasiatPusakaPakej> {
                         onPressed: _submit,
                         child: Text(
                           'Teruskan Pembayaran',
-                          style: Theme.of(context).textTheme.titleLarge,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
+
                         ),
                       ),
                     ),

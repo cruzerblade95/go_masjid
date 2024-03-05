@@ -9,5 +9,5 @@ final ButtonStyle buttonMuslim = ElevatedButton.styleFrom(
       borderRadius: BorderRadius.all(
         Radius.circular(10),
       ),
-    )
+    ),
 );

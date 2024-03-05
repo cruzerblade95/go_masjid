@@ -387,8 +387,8 @@ class _FastApps extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 FastAppIcons(
-                  label: 'MasjidCare',
-                  image: 'assets/icons/Icon_MasjidCare.png',
+                  label: 'MasjidCare  -',
+                  image: 'assets/icons/go_masjid_new_icon/MASJIDCARE.png',
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -396,8 +396,8 @@ class _FastApps extends StatelessWidget {
                   },
                 ),
                 FastAppIcons(
-                  label: 'MuslimCare',
-                  image: 'assets/icons/IDaftarSolat.png',
+                  label: 'MuslimCare (Coming Soon)',
+                  image: 'assets/icons/go_masjid_new_icon/MUSLIM-CARE.png',
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -406,12 +406,12 @@ class _FastApps extends StatelessWidget {
                 ),
                 FastAppIcons(
                   label: 'InfaqCare (Coming Soon)',
-                  image: 'assets/icons/InfaqLogoBulat.png',
+                  image: 'assets/icons/go_masjid_new_icon/INFAQ-DAN-WAKAF.png',
                   onPressed: () {},
                 ),
                 FastAppIcons(
                   label: 'Wasiat & Pusaka',
-                  image: 'assets/icons/IconTanggungan.png',
+                  image: 'assets/icons/go_masjid_new_icon/WASIAT-&-PUSAKA.png',
                   onPressed: () {
                     Navigator.push(
                         context,
