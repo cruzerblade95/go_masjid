@@ -142,91 +142,105 @@ class _WasiatPusakaBayarState extends State<WasiatPusakaBayar> {
               const Divider(),
               Align(alignment: Alignment.centerLeft,
                 child: Container(
-                  padding: const EdgeInsets.fromLTRB(30.0,8,30.0,0),
-                  child: const Text("Sila pilih cara pembayaran anda", textAlign: TextAlign.left,),
+                  padding: const EdgeInsets.fromLTRB(30.0,8,30.0,8),
+                  child: const Text("Sila pilih cara pembayaran anda", textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.bold),),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30.0,0,30.0,8),
-                child: DropdownButtonHideUnderline(
-                  child: ButtonTheme(
-                    alignedDropdown: true,
-                    child: DropdownButton<int>(
-                      isExpanded: true,
-                      value: _myPembayaran,
-                      iconSize: 30,
-                      icon: (null),
-                      style: const TextStyle(
-                        color: Colors.black54,
-                        fontSize: 16,
+                child: InputDecorator(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    ),
+                  ),
+                  child: DropdownButtonHideUnderline(
+                    child: ButtonTheme(
+                      alignedDropdown: true,
+                      child: DropdownButton<int>(
+                        isExpanded: true,
+                        value: _myPembayaran,
+                        iconSize: 30,
+                        icon: (null),
+                        style: const TextStyle(
+                          color: Colors.black54,
+                          fontSize: 16,
+                        ),
+                        hint: const Text('Sila buat pilihan anda'),
+                        onChanged: (newValue) {
+                          setState(() {
+                            _myPembayaran = newValue!;
+                            _myTempohPembayaran = null;
+                          });
+                        },
+                        items: const [
+                          DropdownMenuItem(
+                            value: 1,
+                            child: Text("CASH"),
+                          ),
+                          DropdownMenuItem(
+                            value: 2,
+                            child: Text("DEBIT/KREDIT"),
+                          ),
+                        ],
                       ),
-                      hint: const Text('Sila buat pilihan anda'),
-                      onChanged: (newValue) {
-                        setState(() {
-                          _myPembayaran = newValue!;
-                          _myTempohPembayaran = null;
-                        });
-                      },
-                      items: const [
-                        DropdownMenuItem(
-                          value: 1,
-                          child: Text("CASH"),
-                        ),
-                        DropdownMenuItem(
-                          value: 2,
-                          child: Text("DEBIT/KREDIT"),
-                        ),
-                      ],
                     ),
                   ),
                 ),
               ),
               Align(alignment: Alignment.centerLeft,
                 child: Container(
-                  padding: const EdgeInsets.fromLTRB(30.0,8,30.0,0),
-                  child: const Text("Sila pilih tempoh pembayaran anda", textAlign: TextAlign.left,),
+                  padding: const EdgeInsets.fromLTRB(30.0,8,30.0,8),
+                  child: const Text("Sila pilih tempoh pembayaran anda", textAlign: TextAlign.left, style: TextStyle(fontWeight: FontWeight.bold),),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30.0,0,30.0,8),
-                child: DropdownButtonHideUnderline(
-                  child: ButtonTheme(
-                    alignedDropdown: true,
-                    child: DropdownButton<int>(
-                      isExpanded: true,
-                      value: _myTempohPembayaran,
-                      iconSize: 30,
-                      icon: (null),
-                      style: const TextStyle(
-                        color: Colors.black54,
-                        fontSize: 16,
+                child: InputDecorator(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    ),
+                  ),
+                  child: DropdownButtonHideUnderline(
+                    child: ButtonTheme(
+                      alignedDropdown: true,
+                      child: DropdownButton<int>(
+                        isExpanded: true,
+                        value: _myTempohPembayaran,
+                        iconSize: 30,
+                        icon: (null),
+                        style: const TextStyle(
+                          color: Colors.black54,
+                          fontSize: 16,
+                        ),
+                        hint: const Text('Sila buat pilihan anda'),
+                        onChanged: (newValue) {
+                          setState(() {
+                            _myTempohPembayaran = newValue!;
+                            bulanan = box.read('pusaka_bulanan');
+                            jumlahBayaran = (bulanan! * _myTempohPembayaran!);
+                          });
+                        },
+                        items: [
+                          (_myPembayaran == 1)?
+                          const DropdownMenuItem(
+                            value: 3,
+                            child: Text("3 Bulan"),
+                          ) : const DropdownMenuItem(
+                            value: 1,
+                            child: Text("1 Bulan"),
+                          ),
+                          const DropdownMenuItem(
+                            value: 6,
+                            child: Text("6 Bulan"),
+                          ),
+                          const DropdownMenuItem(
+                            value: 12,
+                            child: Text("12 Bulan"),
+                          ),
+                        ],
                       ),
-                      hint: const Text('Sila buat pilihan anda'),
-                      onChanged: (newValue) {
-                        setState(() {
-                          _myTempohPembayaran = newValue!;
-                          bulanan = box.read('pusaka_bulanan');
-                          jumlahBayaran = (bulanan! * _myTempohPembayaran!);
-                        });
-                      },
-                      items: [
-                        (_myPembayaran == 1)?
-                        const DropdownMenuItem(
-                          value: 3,
-                          child: Text("3 Bulan"),
-                        ) : const DropdownMenuItem(
-                          value: 1,
-                          child: Text("1 Bulan"),
-                        ),
-                        const DropdownMenuItem(
-                          value: 6,
-                          child: Text("6 Bulan"),
-                        ),
-                        const DropdownMenuItem(
-                          value: 12,
-                          child: Text("12 Bulan"),
-                        ),
-                      ],
                     ),
                   ),
                 ),
@@ -237,11 +251,21 @@ class _WasiatPusakaBayarState extends State<WasiatPusakaBayar> {
                 margin: const EdgeInsets.all(15.0),
                 padding: const EdgeInsets.all(3.0),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blueAccent)
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                    color: Colors.cyan,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Colors.grey)
                 ),
                 child: Column(
                   children: [
-                    Text("Jumlah yang perlu dibayar: RM ${jumlahBayaran}", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                    Text("Jumlah yang perlu dibayar: \n RM ${jumlahBayaran}", textAlign: TextAlign.center, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                     const Divider(),
                     Container(
                       padding: const EdgeInsets.fromLTRB(35.0,10,30.0,10),
@@ -251,7 +275,7 @@ class _WasiatPusakaBayarState extends State<WasiatPusakaBayar> {
                         onPressed: _submit,
                         child: Text(
                           'Bayar Sekarang',
-                          style: Theme.of(context).textTheme.titleLarge,
+                          style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
