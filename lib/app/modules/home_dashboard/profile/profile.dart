@@ -22,7 +22,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(automaticallyImplyLeading: false,title: Text('Profile')),
+      appBar: AppBar(automaticallyImplyLeading: false,title: const Text('Profile')),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(8.0),

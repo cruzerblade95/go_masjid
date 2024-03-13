@@ -89,7 +89,7 @@ class _WasiatPusakaPakejState extends State<WasiatPusakaPakej> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(30.0,0,30.0,8),
                 child: InputDecorator(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     ),
@@ -150,7 +150,7 @@ class _WasiatPusakaPakejState extends State<WasiatPusakaPakej> {
               (_myPenyakit != null)?Padding(
                 padding: const EdgeInsets.fromLTRB(30.0,0,30.0,8),
                 child: InputDecorator(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     ),
@@ -203,7 +203,7 @@ class _WasiatPusakaPakejState extends State<WasiatPusakaPakej> {
               (_myPenyakit != null)?Padding(
                 padding: const EdgeInsets.fromLTRB(30.0,0,30.0,8),
                 child: InputDecorator(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     ),
@@ -291,7 +291,7 @@ class _WasiatPusakaPakejState extends State<WasiatPusakaPakej> {
                         color: Colors.grey.withOpacity(0.5),
                         spreadRadius: 5,
                         blurRadius: 7,
-                        offset: Offset(0, 3), // changes position of shadow
+                        offset: const Offset(0, 3), // changes position of shadow
                       ),
                     ],
                     color: Colors.cyan,
@@ -300,30 +300,30 @@ class _WasiatPusakaPakejState extends State<WasiatPusakaPakej> {
                 ),
                 child: Column(
                   children: [
-                    Text("RM ${bulanan}/Bulan @ RM ${tahunan}/Tahun", textAlign: TextAlign.center, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                    Text("RM $bulanan/Bulan @ RM $tahunan/Tahun", textAlign: TextAlign.center, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                     const Divider(),
                     Align(alignment: Alignment.centerLeft,
                       child: Container(
                         padding: const EdgeInsets.fromLTRB(30.0,8,30.0,8),
-                        child: Text("- ${stringNilaiTabung} akan dibayar sekiranya orang diwasiatkan meninggal dunia (Sehingga Maksima 80 Tahun).", textAlign: TextAlign.left,),
+                        child: Text("- $stringNilaiTabung akan dibayar sekiranya orang diwasiatkan meninggal dunia (Sehingga Maksima 80 Tahun).", textAlign: TextAlign.left,),
                       ),
                     ),
                     Align(alignment: Alignment.centerLeft,
                       child: Container(
                         padding: const EdgeInsets.fromLTRB(35.0,0,30.0,0),
-                        child: Text("*Tiada manfaat jika kematian disebabkan oleh penyakit sedia ada KURANG 1 TAHUN", textAlign: TextAlign.left,style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold)),
+                        child: const Text("*Tiada manfaat jika kematian disebabkan oleh penyakit sedia ada KURANG 1 TAHUN", textAlign: TextAlign.left,style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold)),
                       ),
                     ),
                     Align(alignment: Alignment.centerLeft,
                       child: Container(
                         padding: const EdgeInsets.fromLTRB(30.0,8,30.0,8),
-                        child: Text("- ${stringNilaiTabung} akan dibayar sekiranya orang diwasiatkan hilang upaya kekal & menyeluruh (Sehingga 70 Tahun).", textAlign: TextAlign.left,),
+                        child: Text("- $stringNilaiTabung akan dibayar sekiranya orang diwasiatkan hilang upaya kekal & menyeluruh (Sehingga 70 Tahun).", textAlign: TextAlign.left,),
                       ),
                     ),
                     Align(alignment: Alignment.centerLeft,
                       child: Container(
                         padding: const EdgeInsets.fromLTRB(35.0,0,30.0,10),
-                        child: Text("*Tiada manfaat jika hilang upaya kekal disebabkan penyakit berlaku dalam masa KURANG 6 BULAN", textAlign: TextAlign.left,style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold)),
+                        child: const Text("*Tiada manfaat jika hilang upaya kekal disebabkan penyakit berlaku dalam masa KURANG 6 BULAN", textAlign: TextAlign.left,style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold)),
                       ),
                     ),
 
@@ -376,7 +376,7 @@ class AppMenuCard extends StatelessWidget {
         ),
         color: backgroundColor,
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
               Image.asset(
@@ -388,18 +388,16 @@ class AppMenuCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      child: Text(
-                        title ?? '',
-                        style: textStyles.boldTextStyle.copyWith(
-                          fontFamily: 'Muli',
-                          fontSize: 18.0,
-                          color: AppColors.secondaryColor,
-                        ),
-                        // textAlign: TextAlign.justify,
+                    Text(
+                      title ?? '',
+                      style: textStyles.boldTextStyle.copyWith(
+                        fontFamily: 'Muli',
+                        fontSize: 18.0,
+                        color: AppColors.secondaryColor,
                       ),
+                      // textAlign: TextAlign.justify,
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Text(
                       subtitle ?? '',
                       style: textStyles.defaultTextStyle.copyWith(

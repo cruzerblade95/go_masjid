@@ -14,6 +14,7 @@ import 'package:provider/provider.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 
+import '../../../utils/function/main_function.dart';
 import '../../masjid_care/masjid_care_home.dart';
 import '../../wasiat_pusaka/wasiat_pusaka.dart';
 import '../go_feed/go_feed.dart';
@@ -51,7 +52,7 @@ class _Content extends StatelessWidget {
             const SizedBox(height: 10),
             SalamUser(box),
             WaktuSolat(),
-            const _FastApps(),
+            _FastApps(),
             const InfoFeed(),
             MediaNews(),
             // InfoFeed()
@@ -369,7 +370,9 @@ class _WaktuSolatState extends State<WaktuSolat> {
 // }
 
 class _FastApps extends StatelessWidget {
-  const _FastApps({Key? key}) : super(key: key);
+  _FastApps({Key? key}) : super(key: key);
+
+  // ShowDialog();
 
   @override
   Widget build(BuildContext context) {
@@ -407,7 +410,17 @@ class _FastApps extends StatelessWidget {
                 FastAppIcons(
                   label: 'InfaqCare (Coming Soon)',
                   image: 'assets/icons/go_masjid_new_icon/INFAQ-DAN-WAKAF.png',
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) => ShowDialogSemua(
+                          title: "Akan Datang",
+                          subtitle1: "Modul InfaqCare sedang dibina..",
+                          subtitle2: "",
+                          buttonText: "OK"
+                        )
+                    );
+                  },
                 ),
                 FastAppIcons(
                   label: 'Wasiat & Pusaka',
