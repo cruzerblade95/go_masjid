@@ -49,6 +49,7 @@ class _TasbihState extends State<Tasbih> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Tasbih')),
       body: GestureDetector(
         onTap: _clicked,
         onVerticalDragStart: (_) => _clicked(),
