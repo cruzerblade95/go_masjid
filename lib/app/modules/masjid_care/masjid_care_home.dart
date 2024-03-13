@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:go_masjid/app/modules/home_dashboard/profile/profile_menu_widget.dart';
 import 'package:go_masjid/app/modules/home_dashboard/profile/profile_update_screen.dart';
 import 'package:go_masjid/app/modules/masjid_care/semak_kariah_ketua.dart';
@@ -9,7 +10,8 @@ import '../../utils/styles/app_colors.dart';
 import '../../utils/styles/app_size.dart';
 import '../../utils/styles/app_textstyles.dart';
 import '../daftar_kariah/daftar_kariah.dart';
-
+import '../muslim_care/aktiviti/aktiviti.dart';
+import '../sejarah_masjid/sejarah_masjid.dart';
 
 class MasjidCareHome extends StatefulWidget {
   const MasjidCareHome({super.key});
@@ -19,10 +21,13 @@ class MasjidCareHome extends StatefulWidget {
 }
 
 class _MasjidCareHomeState extends State<MasjidCareHome> {
+
+  final box = GetStorage();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Masjid Care')),
+      appBar: AppBar(title: const Text('Masjid Care')),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(8.0),
@@ -48,7 +53,7 @@ class _MasjidCareHomeState extends State<MasjidCareHome> {
                 onTap: () => {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => DaftarKariah())
+                      MaterialPageRoute(builder: (context) => const DaftarKariah())
                   )
                 },
               ),
@@ -70,10 +75,10 @@ class _MasjidCareHomeState extends State<MasjidCareHome> {
                 iconImage: 'assets/icons/go_masjid_new_icon/AKTIVITI.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(builder: (context) => DaftarKariah())
-                  // )
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AktivitiHome())
+                  )
                 },
               ),
               AppMenuCard(
@@ -106,6 +111,9 @@ class _MasjidCareHomeState extends State<MasjidCareHome> {
                 iconImage: 'assets/icons/go_masjid_new_icon/INFO-MASJID.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SejarahMasjid(feedid: '${box.read('user_kod_masjid')}',)))
                   // Navigator.push(
                   //     context,
                   //     MaterialPageRoute(builder: (context) => DaftarKariah())
