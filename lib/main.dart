@@ -9,10 +9,10 @@ Future<void> main() async {
   // check permission is given
   // ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS},1);
 
-  var status = await Permission.sms.status;
-  if (status.isDenied) {
-    await Permission.sms.request();
-  }
+  // var status = await Permission.sms.status;
+  // if (status.isDenied) {
+  //   await Permission.sms.request();
+  // }
   runApp(const MyApp());
 }
 
