@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_masjid/app/modules/muslim_care/tasbih/tasbih.dart';
 import '../../utils/styles/app_colors.dart';
 import '../../utils/styles/app_size.dart';
 import '../../utils/styles/app_textstyles.dart';
@@ -74,10 +75,10 @@ class _MuslimCareHomeState extends State<MuslimCareHome> {
                 iconImage: 'assets/icons/go_masjid_new_icon/TASBIH.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(builder: (context) => DaftarKariah())
-                  // )
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Tasbih())
+                  )
                 },
               ),
               AppMenuCard(
