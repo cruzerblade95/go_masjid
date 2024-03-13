@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:go_masjid/app/modules/daftar_kematian/daftar_kematian.dart';
 import 'package:go_masjid/app/modules/home_dashboard/profile/profile_menu_widget.dart';
 import 'package:go_masjid/app/modules/home_dashboard/profile/profile_update_screen.dart';
 import 'package:go_masjid/app/modules/masjid_care/semak_kariah_ketua.dart';
@@ -58,10 +59,10 @@ class _MasjidCareHomeState extends State<MasjidCareHome> {
                 iconImage: 'assets/icons/go_masjid_new_icon/LAPOR-KEMATIAN.png',
                 backgroundColor: AppColors.primaryColor,
                 onTap: () => {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(builder: (context) => DaftarKariah())
-                  // )
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DaftarKematian())
+                  )
                 },
               ),
               AppMenuCard(
